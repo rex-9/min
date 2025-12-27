@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min - Professional Da Lat Tour Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span class="logo-neon">M</span>in<span class="logo-dalat">DaLat</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="tel:+84123456789" class="nav-cta">
+                        <i class="fas fa-phone-alt"></i> Book Now
+                    </a></li>
+                </ul>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">Professional Da Lat Guide</div>
+                <h1>Discover Da Lat Through <span class="neon-text">Local Eyes</span></h1>
+                <p>Hi, I'm <span class="highlight">Min</span> — born and raised in the City of Eternal Spring. Let me show you the <span class="highlight">hidden gems</span>, <span class="highlight">secret spots</span>, and <span class="highlight">untold stories</span> that only a true Da Lat native knows.</p>
+                <div class="hero-buttons">
+                    <a href="#gallery" class="cta-button">
+                        <i class="fas fa-images"></i> Explore Da Lat
+                    </a>
+                    <a href="#contact" class="cta-button cta-button-secondary">
+                        <i class="fas fa-calendar-alt"></i> Plan Your Tour
+                    </a>
+                </div>
+                <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Every Corner Explored</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-history"></i>
+                        <span>Local History & Stories</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-camera"></i>
+                        <span>Photo Spots Known</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-frame">
+                    <img src="/min.jpg" alt="Min - Da Lat Tour Guide" class="guide-image">
+                    <div class="image-glow"></div>
+                </div>
+                <div class="location-badge">
+                    <i class="fas fa-map-pin"></i>
+                    <span>Da Lat Native Guide</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Your Da Lat Insider</h2>
+                <div class="title-glow"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3>Born Among the Hills</h3>
+                    <p>I was born and raised in Da Lat, growing up exploring every pine forest, waterfall, and hidden valley. This isn't just my job—it's sharing my hometown.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h3>Beyond the Tourist Path</h3>
+                    <p>While others show you guidebook locations, I'll take you to secret viewpoints, local coffee farms, and places only residents know about.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Stories That Come Alive</h3>
+                    <p>Every French villa, pagoda, and market stall has a story. I'll share the legends, history, and personal anecdotes that make Da Lat magical.</p>
+                </div>
+            </div>
+            <div class="about-cta">
+                <p>Ready to experience Da Lat like a local, not just a tourist?</p>
+                <a href="#contact" class="cta-button cta-button-neon">
+                    <i class="fas fa-hiking"></i> Start Your Adventure
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Da Lat Through My Lens</h2>
+                <p class="section-subtitle">Hidden spots & famous landmarks I'll show you</p>
+                <div class="title-glow"></div>
+            </div>
+
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="nature">Nature</button>
+                <button class="filter-btn" data-filter="culture">Culture</button>
+                <button class="filter-btn" data-filter="hidden">Hidden Gems</button>
+                <button class="filter-btn" data-filter="food">Local Food</button>
+            </div>
+
+            <div class="gallery-container">
+                <div class="gallery-item" data-category="nature">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pongour Waterfall">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Pongour Waterfall</h3>
+                                <p>Majestic 7-tier waterfall in the jungle</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="culture">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1534008897995-27a23e859048?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lin Phuoc Pagoda">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Lin Phuoc Pagoda</h3>
+                                <p>Mosaic masterpiece temple</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="hidden">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Secret Lake View">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Tuyen Lam Lake Sunrise</h3>
+                                <p>Secret viewpoint for magical mornings</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="food">
+                    <div class="gallery-image">
+                        <img src="https://statics.vinwonders.com/da-lat-night-market-1_1686415823.jpg" alt="Local Market">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Central Market Delights</h3>
+                                <p>Fresh produce & street food gems</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pine Forest">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Da Lat Pine Forests</h3>
+                                <p>Fresh air & perfect photography spots</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="culture">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="French Architecture">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>French Colonial Villas</h3>
+                                <p>Historical architecture with stories</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="hidden">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Coffee Plantation">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Local Coffee Plantations</h3>
+                                <p>Where Da Lat's best coffee grows</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="food">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Street Food">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Night Market Eats</h3>
+                                <p>Authentic Vietnamese street food</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-cta">
+                <p>See these places and many more on a personalized tour!</p>
+                <a href="#contact" class="cta-button">
+                    <i class="fas fa-route"></i> Customize Your Tour
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Traveler Stories</h2>
+                <p class="section-subtitle">What visitors say about touring with Min</p>
+                <div class="title-glow"></div>
+            </div>
+
+            <div class="testimonials-wrapper">
+                <button class="carousel-btn carousel-btn-prev" aria-label="Previous testimonial">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <div class="testimonials-container">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">❝</div>
+                            <p class="testimonial-text">Min showed us a Da Lat we never would have found on our own! From secret viewpoints to the best bánh mì in town, every moment was perfect.</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Sarah & Mark</h4>
+                                    <p>Couple from Australia</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">❝</div>
+                            <p class="testimonial-text">As a solo traveler, I felt completely safe and learned so much about Vietnamese culture. Min's passion for Da Lat is contagious!</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>James Wilson</h4>
+                                    <p>Solo traveler from UK</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">❝</div>
+                            <p class="testimonial-text">Our family of five had the best day exploring with Min. He kept the kids engaged with stories and found places everyone loved. Truly memorable!</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>The Chen Family</h4>
+                                    <p>Family from Singapore</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-btn carousel-btn-next" aria-label="Next testimonial">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="carousel-dots">
+                <!-- Dots added by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Plan Your Da Lat Adventure</h2>
+                <p class="section-subtitle">Let's create your perfect itinerary</p>
+                <div class="title-glow"></div>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Ready to Explore?</h3>
+                    <p>Tell me about your travel plans, interests, and group size. I'll create a personalized Da Lat experience just for you.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Call / WhatsApp</h4>
+                                <p>+84 123 456 789</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>min.dalatguide@example.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Based In</h4>
+                                <p>Da Lat, Vietnam</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tour-types">
+                        <h4>Popular Tour Types:</h4>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Full-Day City Exploration</li>
+                            <li><i class="fas fa-check-circle"></i> Nature & Waterfalls Tour</li>
+                            <li><i class="fas fa-check-circle"></i> Photography-Focused Tours</li>
+                            <li><i class="fas fa-check-circle"></i> Food & Market Experience</li>
+                            <li><i class="fas fa-check-circle"></i> Custom Multi-Day Itineraries</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form id="contactForm" action="https://formspree.io/f/moqrrpoj" method="POST">
+                        <input type="hidden" name="_subject" value="New Da Lat Tour Inquiry from Website">
+                        <input type="hidden" name="_replyto" value="min.dalatguide@example.com">
+
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tour-date">Preferred Tour Date</label>
+                            <input type="date" id="tour-date" name="tour-date" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="group-size">Group Size</label>
+                            <select id="group-size" name="group-size" class="form-control">
+                                <option value="" selected>Select group size</option>
+                                <option value="Solo Traveler">Solo Traveler</option>
+                                <option value="2 People">2 People</option>
+                                <option value="3-4 People">3-4 People</option>
+                                <option value="5-6 People">5-6 People</option>
+                                <option value="7+ People">7+ People</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tour-type">Tour Type Interest</label>
+                            <select id="tour-type" name="tour-type" class="form-control">
+                                <option value="" selected>Select preferred tour type</option>
+                                <option value="Full-Day City Exploration">Full-Day City Exploration</option>
+                                <option value="Nature & Waterfalls Tour">Nature & Waterfalls Tour</option>
+                                <option value="Photography-Focused Tours">Photography-Focused Tours</option>
+                                <option value="Food & Market Experience">Food & Market Experience</option>
+                                <option value="Custom Multi-Day Itinerary">Custom Multi-Day Itinerary</option>
+                                <option value="Not Sure - Need Recommendations">Not Sure - Need Recommendations</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Tour Interests & Questions *</label>
+                            <textarea id="message" name="message" rows="4" class="form-control" required placeholder="What would you like to see in Da Lat? Any specific interests?"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input type="checkbox" id="newsletter" name="newsletter" class="form-check-input">
+                                <label for="newsletter" class="form-check-label">Send me Da Lat travel tips & seasonal recommendations</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="cta-button form-submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Inquiry
+                        </button>
+
+                        <div class="form-status" id="form-status"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="logo footer-logo">
+                        <span class="logo-neon">M</span>in<span class="logo-dalat">DaLat</span>
+                    </div>
+                    <p class="footer-quote">"Da Lat isn't just a place on the map—it's my home. Let me share its magic with you."</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-nav">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About Min</a></li>
+                            <li><a href="#gallery">Da Lat Gallery</a></li>
+                            <li><a href="#testimonials">Traveler Stories</a></li>
+                            <li><a href="#contact">Book a Tour</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-social">
+                        <h4>Connect With Min</h4>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+                            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                        <a href="tel:+84123456789" class="footer-cta">
+                            <i class="fas fa-phone-alt"></i> Call to Book: +84 123 456 789
+                        </a>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    <p>&copy; <span id="currentYear"></span> Min - Professional Da Lat Tour Guide. All rights reserved.</p>
+                    <p class="footer-note">Born in Da Lat • Knows Every Corner • Passionate Storyteller</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="min-script.js"></script>
+</body>
+</html>
