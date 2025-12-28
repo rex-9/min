@@ -979,6 +979,10 @@ footer {
   font-weight: 500;
 }
 
+.desktop-only {
+  display: block;
+}
+
 /* Responsive Design */
 @media (max-width: 992px) {
   .hero .container {
@@ -1087,6 +1091,10 @@ footer {
 }
 
 @media (max-width: 480px) {
+  .desktop-only {
+    display: none;
+  }
+
   .hero {
     padding: 150px 0 80px;
   }
