@@ -117,7 +117,7 @@ filterBtns.forEach(btn => {
   });
 });
 
-// Testimonials Carousel
+// Enhanced Testimonials Carousel with swipe support
 function initTestimonialsCarousel() {
   const container = document.querySelector('.testimonials-container');
   const prevBtn = document.querySelector('.carousel-btn-prev');
@@ -127,13 +127,29 @@ function initTestimonialsCarousel() {
   if (!container || !prevBtn || !nextBtn) return;
 
   const cards = document.querySelectorAll('.testimonial-card');
-  const cardWidth = cards[0] ? cards[0].offsetWidth + 30 : 330;
-  const visibleCards = window.innerWidth >= 992 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+  if (cards.length === 0) return;
+
+  // Check if mobile (single card view)
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+  // Calculate card width including gap and margins
+  let cardWidth;
+  if (isMobile) {
+    // On mobile, cards have margins: calc(100% - 40px) + 20px margin on each side
+    const cardStyle = window.getComputedStyle(cards[0]);
+    cardWidth = cards[0].offsetWidth + parseInt(cardStyle.marginLeft) + parseInt(cardStyle.marginRight);
+  } else {
+    // On desktop, use offsetWidth + gap (30px)
+    cardWidth = cards[0].offsetWidth + 30;
+  }
+
+  const visibleCards = isMobile ? 1 : (window.innerWidth >= 992 ? 3 : 2);
   let currentPosition = 0;
   let maxPosition = Math.max(0, cards.length - visibleCards);
 
   // Create dots
   if (dotsContainer) {
+    dotsContainer.innerHTML = '';
     for (let i = 0; i <= maxPosition; i++) {
       const dot = document.createElement('button');
       dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
@@ -152,17 +168,36 @@ function initTestimonialsCarousel() {
     });
   }
 
-  function goToPosition(position) {
+  function goToPosition(position, smooth = true) {
     currentPosition = Math.max(0, Math.min(position, maxPosition));
+
+    // Calculate scroll position based on card width
+    const scrollPosition = currentPosition * cardWidth;
+
     container.scrollTo({
-      left: currentPosition * cardWidth,
-      behavior: 'smooth'
+      left: scrollPosition,
+      behavior: smooth ? 'smooth' : 'auto'
     });
     updateDots();
   }
 
+  // Update dots on scroll (for swipe)
+  container.addEventListener('scroll', () => {
+    const scrollPosition = container.scrollLeft;
+    const newPosition = Math.round(scrollPosition / cardWidth);
+
+    if (newPosition !== currentPosition && newPosition >= 0 && newPosition <= maxPosition) {
+      currentPosition = newPosition;
+      updateDots();
+    }
+  });
+
   // Next button
-  nextBtn.addEventListener('click', () => {
+  nextBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Next button clicked, currentPosition:', currentPosition);
+
     if (currentPosition < maxPosition) {
       goToPosition(currentPosition + 1);
     } else {
@@ -171,7 +206,11 @@ function initTestimonialsCarousel() {
   });
 
   // Previous button
-  prevBtn.addEventListener('click', () => {
+  prevBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Prev button clicked, currentPosition:', currentPosition);
+
     if (currentPosition > 0) {
       goToPosition(currentPosition - 1);
     } else {
@@ -184,59 +223,72 @@ function initTestimonialsCarousel() {
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(() => {
-      const newVisibleCards = window.innerWidth >= 992 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+      const newIsMobile = window.matchMedia('(max-width: 768px)').matches;
+      const newVisibleCards = newIsMobile ? 1 : (window.innerWidth >= 992 ? 3 : 2);
       maxPosition = Math.max(0, cards.length - newVisibleCards);
 
-      // Update dots
-      const dots = document.querySelectorAll('.carousel-dot');
-      if (dots.length > maxPosition + 1) {
-        for (let i = dots.length - 1; i > maxPosition; i--) {
-          dots[i].remove();
-        }
-      } else if (dots.length < maxPosition + 1) {
-        for (let i = dots.length; i <= maxPosition; i++) {
-          const dot = document.createElement('button');
-          dot.className = `carousel-dot ${i === currentPosition ? 'active' : ''}`;
-          dot.setAttribute('aria-label', `Go to testimonial group ${i + 1}`);
-          dot.addEventListener('click', () => {
-            goToPosition(i);
-          });
-          dotsContainer.appendChild(dot);
+      // Recalculate card width
+      if (newIsMobile) {
+        const cardStyle = window.getComputedStyle(cards[0]);
+        cardWidth = cards[0].offsetWidth + parseInt(cardStyle.marginLeft) + parseInt(cardStyle.marginRight);
+      } else {
+        cardWidth = cards[0].offsetWidth + 30;
+      }
+
+      // Recreate dots if needed
+      if (dotsContainer) {
+        const dots = document.querySelectorAll('.carousel-dot');
+        if (dots.length !== maxPosition + 1) {
+          dotsContainer.innerHTML = '';
+          for (let i = 0; i <= maxPosition; i++) {
+            const dot = document.createElement('button');
+            dot.className = `carousel-dot ${i === currentPosition ? 'active' : ''}`;
+            dot.setAttribute('aria-label', `Go to testimonial group ${i + 1}`);
+            dot.addEventListener('click', () => {
+              goToPosition(i);
+            });
+            dotsContainer.appendChild(dot);
+          }
         }
       }
 
       if (currentPosition > maxPosition) {
         currentPosition = maxPosition;
-        goToPosition(currentPosition);
+        goToPosition(currentPosition, false);
       }
+
+      updateDots();
     }, 250);
   });
 
-  // Auto-advance every 5 seconds
-  let autoAdvanceInterval = setInterval(() => {
-    if (currentPosition < maxPosition) {
-      goToPosition(currentPosition + 1);
-    } else {
-      goToPosition(0);
-    }
-  }, 5000);
-
-  // Pause auto-advance on hover
-  container.addEventListener('mouseenter', () => {
-    clearInterval(autoAdvanceInterval);
-  });
-
-  container.addEventListener('mouseleave', () => {
-    autoAdvanceInterval = setInterval(() => {
+  // Auto-advance (desktop only)
+  if (!isMobile) {
+    let autoAdvanceInterval = setInterval(() => {
       if (currentPosition < maxPosition) {
         goToPosition(currentPosition + 1);
       } else {
         goToPosition(0);
       }
     }, 5000);
-  });
 
+    container.addEventListener('mouseenter', () => {
+      clearInterval(autoAdvanceInterval);
+    });
+
+    container.addEventListener('mouseleave', () => {
+      autoAdvanceInterval = setInterval(() => {
+        if (currentPosition < maxPosition) {
+          goToPosition(currentPosition + 1);
+        } else {
+          goToPosition(0);
+        }
+      }, 5000);
+    });
+  }
+
+  // Initialize
   updateDots();
+  console.log('Testimonials carousel initialized, cardWidth:', cardWidth, 'visibleCards:', visibleCards);
 }
 
 // Header scroll effect

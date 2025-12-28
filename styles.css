@@ -20,6 +20,13 @@
   box-sizing: border-box;
 }
 
+/* Prevent horizontal scroll on entire site */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -41,7 +48,7 @@ h4 {
 }
 
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
@@ -321,6 +328,8 @@ nav {
 
 /* Sections */
 section {
+  width: 100%;
+  box-sizing: border-box;
   padding: 100px 0;
 }
 
@@ -660,6 +669,10 @@ section {
   cursor: pointer;
   transition: all 0.3s;
   flex-shrink: 0;
+  display: flex;
+  /* Ensure it's visible by default */
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel-btn:hover {
@@ -1018,6 +1031,10 @@ footer {
 }
 
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
   .nav-links {
     display: none;
     position: absolute;
@@ -1069,19 +1086,32 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .testimonials-wrapper {
-    gap: 10px;
+  /* Center single card on mobile */
+  .testimonials-container {
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 20px;
+    padding: 10px 20px;
   }
 
   .testimonial-card {
-    flex: 0 0 calc(100% - 20px);
-    min-width: calc(100% - 20px);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    flex: 0 0 calc(100% - 40px);
+    min-width: calc(100% - 40px);
+    margin: 0 10px;
   }
 
+  /* Hide arrows ONLY on mobile */
   .carousel-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
+    display: none;
+  }
+
+  /* Adjust container width for proper centering */
+  .testimonials-wrapper {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .footer-links {
@@ -1112,6 +1142,24 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  /* Ensure cards are properly centered */
+  .testimonial-card {
+    flex: 0 0 calc(100% - 20px);
+    min-width: calc(100% - 20px);
+    margin: 0 auto;
+  }
+
+  /* Center the containers */
+  .testimonials-container {
+    justify-content: flex-start;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+  }
+
+  .carousel-btn {
+    display: none;
+  }
+
   .filter-btn {
     padding: 8px 20px;
     font-size: 14px;
@@ -1120,9 +1168,5 @@ footer {
   .contact-info,
   .contact-form {
     padding: 30px 20px;
-  }
-
-  .carousel-btn {
-    display: none;
   }
 }
