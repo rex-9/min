@@ -132,102 +132,8 @@
                 <button class="filter-btn" data-filter="food">Local Food</button>
             </div>
 
-            <div class="gallery-container">
-                <div class="gallery-item" data-category="nature">
-                    <div class="gallery-image">
-                        <img src="https://statics.vinpearl.com/Da-Lat-Waterfalls-01_1682518396.jpg" alt="Pongour Waterfall">
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Pongour Waterfall</h3>
-                                <p>Majestic 7-tier waterfall in the jungle</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="culture">
-                    <div class="gallery-image">
-                        <img src="https://images.unsplash.com/photo-1534008897995-27a23e859048?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lin Phuoc Pagoda">
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Lin Phuoc Pagoda</h3>
-                                <p>Mosaic masterpiece temple</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="hidden">
-                    <div class="gallery-image">
-                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Secret Lake View">
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Tuyen Lam Lake Sunrise</h3>
-                                <p>Secret viewpoint for magical mornings</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="food">
-                    <div class="gallery-image">
-                        <img src="https://statics.vinwonders.com/da-lat-night-market-1_1686415823.jpg" alt="Local Market">
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Central Market Delights</h3>
-                                <p>Fresh produce & street food gems</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="nature">
-                    <div class="gallery-image">
-                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pine Forest">
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Da Lat Pine Forests</h3>
-                                <p>Fresh air & perfect photography spots</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="culture">
-                    <div class="gallery-image">
-                        <img src="https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="French Architecture">
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>French Colonial Villas</h3>
-                                <p>Historical architecture with stories</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="hidden">
-                    <div class="gallery-image">
-                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Coffee Plantation">
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Local Coffee Plantations</h3>
-                                <p>Where Da Lat's best coffee grows</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="food">
-                    <div class="gallery-image">
-                        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Street Food">
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Night Market Eats</h3>
-                                <p>Authentic Vietnamese street food</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="gallery-container" id="galleryContainer">
+            <!-- Gallery items will be generated by JavaScript -->
             </div>
 
             <div class="gallery-cta">
@@ -529,6 +435,40 @@
             </div>
         </div>
     </footer>
+
+    <!-- gallery video modal -->
+    <div class="video-modal" id="videoModal">
+    <div class="video-modal-content">
+        <button class="video-modal-close" id="modalClose">
+        <i class="fas fa-times"></i>
+        </button>
+
+        <div class="vertical-carousel">
+        <div class="video-counter" id="videoCounter">1/3</div>
+
+        <div class="video-slides-container" id="videoSlidesContainer">
+            <!-- Video slides will be inserted here -->
+        </div>
+
+        <div class="scroll-indicator" id="scrollIndicator">
+            <!-- Scroll dots will be inserted here -->
+        </div>
+
+        <div class="video-nav">
+            <button class="nav-arrow up" id="prevVideo">
+            <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="nav-arrow down" id="nextVideo">
+            <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+
+        <div class="video-loading" id="videoLoading">
+            <i class="fas fa-spinner fa-spin"></i> Loading video...
+        </div>
+        </div>
+    </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
