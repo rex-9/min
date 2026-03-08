@@ -365,7 +365,7 @@ function initGallery() {
           <div class="gallery-info">
             <h3>${place.title}</h3>
             <p>${place.subtitle}</p>
-            <p class="gallery-desc">${place.description.substring(0, 100)}...</p>
+            <p class="gallery-desc">${place.description.substring(0, 200)}...</p>
             <button class="gallery-view-btn">
               <i class="fas fa-play-circle"></i> Watch Videos (${place.videos.length})
             </button>
