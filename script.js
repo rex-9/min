@@ -367,7 +367,7 @@ function initGallery() {
             <p>${place.subtitle}</p>
             <p class="gallery-desc">${place.description.substring(0, 200)}...</p>
             <button class="gallery-view-btn">
-              <i class="fas fa-play-circle"></i> Watch Videos (${place.videos.length})
+              <i class="fas fa-play-circle"></i> View More ${place.videos.length > 1 ? `(${place.videos.length})` : ""}
             </button>
           </div>
         </div>
@@ -420,17 +420,21 @@ function openVideoModal(placeId) {
     videoSlide.className = 'video-slide';
     videoSlide.setAttribute('data-video-index', index);
 
+    // <iframe
+    //   class="youtube-video"
+    //   src="https://www.youtube.com/embed/${video.youtubeId}?enablejsapi=1&autoplay=0&rel=0&modestbranding=1"
+    //   title="${video.title}"
+    //   frameborder="0"
+    //   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    //   allowfullscreen
+    //   loading="lazy">
+    // </iframe>
+
     videoSlide.innerHTML = `
       <div class="video-wrapper">
-        <iframe
-          class="youtube-video"
-          src="https://www.youtube.com/embed/${video.youtubeId}?enablejsapi=1&autoplay=0&rel=0&modestbranding=1"
-          title="${video.title}"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          loading="lazy">
-        </iframe>
+        <div class="gallery-image">
+          <img src="${place.photoUrl}" alt="${place.title}" loading="lazy">
+        </div>
       </div>
       <div class="video-info">
         <h3>${video.title}</h3>
@@ -449,13 +453,15 @@ function openVideoModal(placeId) {
             <i class="fas fa-tag"></i>
             <span>${place.category.charAt(0).toUpperCase() + place.category.slice(1)}</span>
           </div>
-          <div class="detail-item">
-            <i class="fas fa-images"></i>
-            <span>${place.videos.length} videos</span>
-          </div>
         </div>
       </div>
     `;
+
+
+    // <div class="detail-item">
+    //   <i class="fas fa-images"></i>
+    //   <span>${place.videos.length} videos</span>
+    // </div>
 
     slidesContainer.appendChild(videoSlide);
 
@@ -677,16 +683,6 @@ const daLatGalleryData = {
           title: "Cable Car Experience",
           subtitle: "Soaring above Da Lat's pine forests"
         },
-        {
-          youtubeId: "8q7L2Y1pS9g",
-          title: "Summit Views",
-          subtitle: "What awaits at Robin Hill"
-        },
-        {
-          youtubeId: "N9sx5LZKx5c",
-          title: "Aerial Da Lat",
-          subtitle: "Best angles from above"
-        }
       ]
     },
     {
@@ -704,16 +700,6 @@ const daLatGalleryData = {
           title: "Truc Lam Monastery Tour",
           subtitle: "Discovering Vietnam's largest Zen monastery"
         },
-        {
-          youtubeId: "8q7L2Y1pS9g",
-          title: "Tuyen Lam Lake Views",
-          subtitle: "The monastery's stunning backdrop"
-        },
-        {
-          youtubeId: "N9sx5LZKx5c",
-          title: "Zen Garden Walk",
-          subtitle: "Peaceful moments at Truc Lam"
-        }
       ]
     },
     {
@@ -731,16 +717,6 @@ const daLatGalleryData = {
           title: "Tuyen Lam Lake Magic",
           subtitle: "Morning mist over the water"
         },
-        {
-          youtubeId: "8q7L2Y1pS9g",
-          title: "Boating Adventures",
-          subtitle: "Exploring the lake by kayak"
-        },
-        {
-          youtubeId: "N9sx5LZKx5c",
-          title: "Lakeside Cafes",
-          subtitle: "Best spots to relax with a view"
-        }
       ]
     },
     {
@@ -758,16 +734,6 @@ const daLatGalleryData = {
           title: "Quiet Art Cafe Tour",
           subtitle: "Da Lat's hidden creative space"
         },
-        {
-          youtubeId: "8q7L2Y1pS9g",
-          title: "Coffee & Art",
-          subtitle: "The perfect combination"
-        },
-        {
-          youtubeId: "N9sx5LZKx5c",
-          title: "French Villa Charm",
-          subtitle: "History meets creativity"
-        }
       ]
     },
     {
@@ -785,16 +751,6 @@ const daLatGalleryData = {
           title: "Mongo Land Adventures",
           subtitle: "Ziplining through the pines"
         },
-        {
-          youtubeId: "8q7L2Y1pS9g",
-          title: "Forest Obstacle Course",
-          subtitle: "Fun for all ages"
-        },
-        {
-          youtubeId: "N9sx5LZKx5c",
-          title: "Views from Above",
-          subtitle: "Panoramic Da Lat scenery"
-        }
       ]
     },
     {
@@ -812,16 +768,6 @@ const daLatGalleryData = {
           title: "Mario Kart Racing",
           subtitle: "Fun at Da Lat's go-kart track"
         },
-        {
-          youtubeId: "8q7L2Y1pS9g",
-          title: "Race Day Experience",
-          subtitle: "Friends competing for glory"
-        },
-        {
-          youtubeId: "N9sx5LZKx5c",
-          title: "Track Views",
-          subtitle: "Scenery while you race"
-        }
       ]
     },
     {
@@ -839,16 +785,6 @@ const daLatGalleryData = {
           title: "Puppy Farm Fun",
           subtitle: "Playing with adorable dogs"
         },
-        {
-          youtubeId: "8q7L2Y1pS9g",
-          title: "Dog Cafe Experience",
-          subtitle: "Coffee with furry friends"
-        },
-        {
-          youtubeId: "N9sx5LZKx5c",
-          title: "Meet the Puppies",
-          subtitle: "All the adorable breeds"
-        }
       ]
     },
     {
@@ -866,16 +802,6 @@ const daLatGalleryData = {
           title: "Datanla Waterfall",
           subtitle: "Adventure at Da Lat's favorite falls"
         },
-        {
-          youtubeId: "8q7L2Y1pS9g",
-          title: "Alpine Coaster Ride",
-          subtitle: "Thrilling ride through the forest"
-        },
-        {
-          youtubeId: "N9sx5LZKx5c",
-          title: "Canyoning Adventures",
-          subtitle: "Waterfall abseiling experience"
-        }
       ]
     },
     {
@@ -893,11 +819,6 @@ const daLatGalleryData = {
           title: "Mosaic Artistry",
           subtitle: "The incredible details up close"
         },
-        {
-          youtubeId: "tgbNymZ7vqY",
-          title: "Architectural Marvel",
-          subtitle: "Traditional Vietnamese design"
-        }
       ]
     },
     {
@@ -915,11 +836,6 @@ const daLatGalleryData = {
           title: "Silk Making Process",
           subtitle: "From cocoon to fabric"
         },
-        {
-          youtubeId: "tgbNymZ7vqY",
-          title: "Artisan Weaving",
-          subtitle: "Traditional craftsmanship"
-        }
       ]
     },
     {
@@ -937,11 +853,6 @@ const daLatGalleryData = {
           title: "Cricket Farming",
           subtitle: "Sustainable protein in Da Lat"
         },
-        {
-          youtubeId: "tgbNymZ7vqY",
-          title: "Culinary Adventure",
-          subtitle: "Tasting cricket snacks"
-        }
       ]
     },
     {
@@ -959,11 +870,6 @@ const daLatGalleryData = {
           title: "Strawberry Picking",
           subtitle: "Harvesting fresh berries"
         },
-        {
-          youtubeId: "tgbNymZ7vqY",
-          title: "Farm Tour",
-          subtitle: "How strawberries grow in Da Lat"
-        }
       ]
     },
     {
@@ -981,11 +887,6 @@ const daLatGalleryData = {
           title: "Persimmon Harvest",
           subtitle: "Da Lat's autumn fruit"
         },
-        {
-          youtubeId: "tgbNymZ7vqY",
-          title: "Drying Process",
-          subtitle: "Traditional persimmon preservation"
-        }
       ]
     },
     {
@@ -1003,11 +904,6 @@ const daLatGalleryData = {
           title: "Coffee Garden Tour",
           subtitle: "From bean to cup"
         },
-        {
-          youtubeId: "tgbNymZ7vqY",
-          title: "Valley Views",
-          subtitle: "Scenic beauty of Cau Dat"
-        }
       ]
     },
     {
@@ -1025,11 +921,6 @@ const daLatGalleryData = {
           title: "Chicken Village Culture",
           subtitle: "K'Ho ethnic traditions"
         },
-        {
-          youtubeId: "tgbNymZ7vqY",
-          title: "Traditional Weaving",
-          subtitle: "Handmade textiles"
-        }
       ]
     },
     {
@@ -1047,11 +938,6 @@ const daLatGalleryData = {
           title: "Mushroom Farming",
           subtitle: "Cultivation techniques"
         },
-        {
-          youtubeId: "tgbNymZ7vqY",
-          title: "Mushroom Cuisine",
-          subtitle: "Tasting local specialties"
-        }
       ]
     },
     {
@@ -1069,11 +955,6 @@ const daLatGalleryData = {
           title: "Flower Village Tour",
           subtitle: "Da Lat's colorful blooms"
         },
-        {
-          youtubeId: "tgbNymZ7vqY",
-          title: "Greenhouse Walk",
-          subtitle: "Behind the scenes"
-        }
       ]
     },
     {
@@ -1091,11 +972,6 @@ const daLatGalleryData = {
           title: "Elephant Waterfall",
           subtitle: "Nature's power in Da Lat"
         },
-        {
-          youtubeId: "tgbNymZ7vqY",
-          title: "Climbing the Rocks",
-          subtitle: "Adventure at the falls"
-        }
       ]
     },
     {
@@ -1113,11 +989,6 @@ const daLatGalleryData = {
           title: "Linh An Pagoda",
           subtitle: "Temple with a view"
         },
-        {
-          youtubeId: "tgbNymZ7vqY",
-          title: "Giant Buddha",
-          subtitle: "Iconic statue overlooking Da Lat"
-        }
       ]
     },
     {
@@ -1543,16 +1414,6 @@ const daLatGalleryData = {
           title: "Pongour Waterfall Majesty",
           subtitle: "Witness the power of nature"
         },
-        {
-          youtubeId: "8q7L2Y1pS9g",
-          title: "Behind the Waterfall",
-          subtitle: "Hidden viewpoints and angles"
-        },
-        {
-          youtubeId: "N9sx5LZKx5c",
-          title: "Local Legends",
-          subtitle: "The story behind Pongour"
-        }
       ]
     },
     {

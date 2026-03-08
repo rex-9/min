@@ -1482,7 +1482,7 @@ footer {
   }
 
   .video-wrapper {
-    aspect-ratio: 9/16;
+    /* aspect-ratio: 9/16; */
     max-width: 100%;
   }
 
